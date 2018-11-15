@@ -53,11 +53,11 @@ static inline void _write(uint16_t address, uint8_t *data, uint8_t length) {
             EECR |= _BV(EEWE);
         }
     } else if (writeBufferLength < EEPROM_WRITE_BUFFER_LENGTH) {
-        EEPROMWriteFrame_t frame = {
-                .address = address,
-                .index   = 0,
-                .length  = length,
-        };
+        EEPROMWriteFrame_t frame;
+
+        frame.address = address;
+        frame.index   = 0;
+        frame.length  = length;
 
         for (uint8_t i = 0; i < length; i++) {
             frame.data[i] = *(data++);
