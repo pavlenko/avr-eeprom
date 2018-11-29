@@ -85,36 +85,44 @@ ISR(EE_RDY_vect){
     }
 }
 
-void EEPROMClass::read(uint16_t address, uint8_t *value) {
-    _read(address, value, 1);
+uint8_t EEPROMClass::readU08(uint16_t address) {
+    uint8_t value;
+    _read(address, &value, 1);
+    return value;
 }
 
-void EEPROMClass::read(uint16_t address, uint16_t *value) {
-    _read(address, (uint8_t *) value, 2);
+uint16_t EEPROMClass::readU16(uint16_t address) {
+    uint16_t value;
+    _read(address, (uint8_t *) &value, 2);
+    return value;
 }
 
-void EEPROMClass::read(uint16_t address, uint32_t *value) {
-    _read(address, (uint8_t *) value, 4);
+uint32_t EEPROMClass::readU32(uint16_t address) {
+    uint32_t value;
+    _read(address, (uint8_t *) &value, 4);
+    return value;
 }
 
-void EEPROMClass::read(uint16_t address, float *value) {
-    _read(address, (uint8_t *) value, 4);
+float EEPROMClass::readFL(uint16_t address) {
+    float value;
+    _read(address, (uint8_t *) &value, 4);
+    return value;
 }
 
-void EEPROMClass::write(uint16_t address, uint8_t *value) {
-    _write(address, value, 1);
+void EEPROMClass::writeU08(uint16_t address, uint8_t value) {
+    _write(address, &value, 1);
 }
 
-void EEPROMClass::write(uint16_t address, uint16_t *value) {
-    _write(address, (uint8_t *) value, 2);
+void EEPROMClass::writeU16(uint16_t address, uint16_t value) {
+    _write(address, (uint8_t *) &value, 2);
 }
 
-void EEPROMClass::write(uint16_t address, uint32_t *value) {
-    _write(address, (uint8_t *) value, 4);
+void EEPROMClass::writeU32(uint16_t address, uint32_t value) {
+    _write(address, (uint8_t *) &value, 4);
 }
 
-void EEPROMClass::write(uint16_t address, float *value) {
-    _write(address, (uint8_t *) value, 4);
+void EEPROMClass::writeFL(uint16_t address, float value) {
+    _write(address, (uint8_t *) &value, 4);
 }
 
 void EEPROMClass::start() {

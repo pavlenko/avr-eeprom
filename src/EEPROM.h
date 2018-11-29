@@ -18,51 +18,51 @@ private:
 public:
     /**
      * @param address
-     * @param value
+     * @return
      */
-    void read(uint16_t address, uint8_t *value);
+    uint8_t readU08(uint16_t address);
+
+    /**
+     * @param address
+     * @return
+     */
+    uint16_t readU16(uint16_t address);
+
+    /**
+     * @param address
+     * @return
+     */
+    uint32_t readU32(uint16_t address);
+
+    /**
+     * @param address
+     * @return
+     */
+    float readFL(uint16_t address);
 
     /**
      * @param address
      * @param value
      */
-    void read(uint16_t address, uint16_t *value);
+    void writeU08(uint16_t address, uint8_t value);
 
     /**
      * @param address
      * @param value
      */
-    void read(uint16_t address, uint32_t *value);
+    void writeU16(uint16_t address, uint16_t value);
 
     /**
      * @param address
      * @param value
      */
-    void read(uint16_t address, float *value);
+    void writeU32(uint16_t address, uint32_t value);
 
     /**
      * @param address
      * @param value
      */
-    void write(uint16_t address, uint8_t *value);
-
-    /**
-     * @param address
-     * @param value
-     */
-    void write(uint16_t address, uint16_t *value);
-
-    /**
-     * @param address
-     * @param value
-     */
-    void write(uint16_t address, uint32_t *value);
-
-    /**
-     * @param address
-     * @param value
-     */
-    void write(uint16_t address, float *value);
+    void writeFL(uint16_t address, float value);
 
     /**
      * Reset write buffer before write

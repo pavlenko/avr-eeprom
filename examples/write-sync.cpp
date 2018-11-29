@@ -7,16 +7,9 @@
 #define EEPROM_FLOAT_ADDR  0x03
 
 int main() {
-    uint8_t value1 = 1;
-    EEPROM.write(EEPROM_UINT8_ADDR, &value1); // <-- This call block program 8000+ cycles
-
-    uint16_t value2 = 2;
-    EEPROM.write(EEPROM_UINT16_ADDR, &value2); // <-- This call block program 2 * 8000+ cycles
-
-    uint32_t value3 = 3;
-    EEPROM.write(EEPROM_UINT32_ADDR, &value3); // <-- This call block program 4 * 8000+ cycles
-
-    float value4 = 4;
-    EEPROM.write(EEPROM_FLOAT_ADDR, &value4); // <-- This call block program 4 * 8000+ cycles
+    EEPROM.writeU08(EEPROM_UINT8_ADDR, 1);  // <-- This call block program 8000+ cycles
+    EEPROM.writeU16(EEPROM_UINT16_ADDR, 2); // <-- This call block program 2 * 8000+ cycles
+    EEPROM.writeU32(EEPROM_UINT32_ADDR, 3); // <-- This call block program 4 * 8000+ cycles
+    EEPROM.writeFL(EEPROM_FLOAT_ADDR, 4);   // <-- This call block program 4 * 8000+ cycles
 }
 
